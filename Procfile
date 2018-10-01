@@ -1,1 +1,1 @@
-web: java $JAVA_OPTS -jar deal-finder-server*.jar --p $PORT
+web: java $JAVA_OPTS -Dserver.port=$PORT -jar deal-finder-server*.jar --p $PORT
