@@ -1,0 +1,7 @@
+/.settings/
+/db/
+/target/
+.classpath
+.project
+phantomjsdriver.log
+
