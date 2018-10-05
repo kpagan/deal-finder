@@ -1,0 +1,43 @@
+<mat-card>
+  <form #alertForm="ngForm" (ngSubmit)="save(alertForm.value)">
+    <mat-card-header>
+      <mat-card-title>
+        <h2>{{alert.name ? 'Edit' : 'Add'}} alert</h2>
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-form-field>
+        <input matInput placeholder="Alert Name" [(ngModel)]="alert.name" required name="name" #name>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="URL" [(ngModel)]="alert.url" required name="url" #url>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-select matInput placeholder="Type" [(value)]="alert.type">
+          <mat-option value="ID">Find elements by ID</mat-option>
+          <mat-option value="LINK_TEXT">Find &lt;A&gt; elements with exact text</mat-option>
+          <mat-option value="PARTIAL_LINK_TEXT">Find &lt;A&gt; elements that contain text (non exact match)</mat-option>
+          <mat-option value="NAME">Find elements by the name attribute</mat-option>
+          <mat-option value="TAG_NAME">Find elements by the tag name</mat-option>
+          <mat-option value="XPATH">Find elements by XPATH</mat-option>
+          <mat-option value="CLASS_NAME">Find elements by the class name</mat-option>
+          <mat-option value="CSS_SELECTOR">Find elements by CSS selector</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Expression" [(ngModel)]="alert.expression" required name="expression" #expression>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Threshold" [(ngModel)]="alert.threshold" required name="threshold" #threshold>
+      </mat-form-field>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" type="submit" [disabled]="!alertForm.form.valid">Save</button>
+      <a mat-button routerLink="/home">Cancel</a>
+    </mat-card-actions>
+    <mat-card-footer>
+      <div class="giphy">
+      </div>
+    </mat-card-footer>
+  </form>
+</mat-card>
